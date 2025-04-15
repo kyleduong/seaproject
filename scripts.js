@@ -54,17 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
       topsBox.innerHTML = "<p>No tops available.</p>";
       return;
     }
-    // handles if the user tries to go left at index 0 or right at the current last index
-    // will circle around to the other side's corresponding index
-    
-    /*
-    if (currentTopIndex < 0){
-      currentTopIndex = tops.length - 1;
-    }
-    if (currentTopIndex >= tops.length){
-      currentTopIndex = 0;
-    } 
-    */
     // render the item and add it to the current box for display
     const topItem = tops[currentTopIndex];
     topsBox.appendChild(renderItem(topItem));
@@ -80,16 +69,6 @@ document.addEventListener("DOMContentLoaded", function() {
       bottomsBox.innerHTML = "<p>No bottoms available.</p>";
       return;
     }
-    // handles if the user tries to go left at index 0 or right at the current last index
-    // will circle around to the other side's corresponding index
-    /*
-    if (currentBottomIndex < 0){
-      currentBottomIndex = bottoms.length - 1;
-    }
-    if (currentBottomIndex >= bottoms.length){
-      currentBottomIndex = 0; 
-    } 
-    */
     // render the item and add it to the current box for display
     const bottomItem = bottoms[currentBottomIndex];
     bottomsBox.appendChild(renderItem(bottomItem));
