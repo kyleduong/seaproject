@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <meta charset="UTF-8" />
+    <title>Outfit Creator - Clothing Catalog</title>
+    <meta name="description" content="A personal catalog of clothing pieces to build outfits" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
   </head>
-
   <body>
+    <!-- header -->
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <h1 class="title">Outfit Creator - Clothing Catalog</h1>
     </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+    <main>
+      <!-- head -->
+      <div id="head-emoji">😀</div>
+      
+      <!-- main content with three functions-->
+      <div class="content-area">
+        <!-- clothing deletion -->
+        <div class="side-panel left-panel">
+          <button onclick="deleteCurrentTop()">Delete Top</button>
+          <button onclick="deleteCurrentBottom()">Delete Bottom</button>
+        </div>
+        <!-- outfit customizer -->
+        <div class="catalog">
+          <!-- tops -->
+          <div class="scroll-container" id="tops-container">
+            <button class="arrow left" onclick="changeTop(-1)">&#9664;</button>
+            <div class="scroll-box" id="tops-box">
+              
+            </div>
+            <button class="arrow right" onclick="changeTop(1)">&#9654;</button>
+          </div>
+          <!-- bottoms -->
+          <div class="scroll-container" id="bottoms-container">
+            <button class="arrow left" onclick="changeBottom(-1)">&#9664;</button>
+            <div class="scroll-box" id="bottoms-box">
+            </div>
+            <button class="arrow right" onclick="changeBottom(1)">&#9654;</button>
+          </div>
+        </div>
+        <!-- adding an article of clothing -->
+        <div class="side-panel right-panel">
+          <h2>Add Clothing Item</h2>
+          <form id="addClothingForm">
+            <input type="text" id="newClothingName" placeholder="Name" required />
+            <input type="text" id="newClothingImage" placeholder="Image URL" required />
+            <select id="newClothingType">
+              <option value="top">Top</option>
+              <option value="bottom">Bottom</option>
+            </select>
+            <button type="button" onclick="addNewClothingItem()">Add Item</button>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Card!</button>
-    </div>
+      
+      <!-- legs/feet -->
+      <div id="feet-emoji">🦶🦶</div>
+      
+      <!-- inventory -->
+      <section id="inventory-section">
+        <h2>Clothing Inventory</h2>
+        <div id="inventory-filters">
+          <input type="text" id="inventorySearch" placeholder="Search by name" />
+          <select id="inventoryType">
+            <option value="all">All</option>
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+          </select>
+          <select id="inventorySort">
+            <option value="asc">Name Ascending</option>
+            <option value="desc">Name Descending</option>
+          </select>
+        </div>
+        <div id="inventory-container">
+          <!-- all inventory loaded here -->
+        </div>
+      </section>
+    </main>
+    <script src="scripts.js"></script>
   </body>
 </html>
